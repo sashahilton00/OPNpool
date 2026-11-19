@@ -34,6 +34,7 @@ import re
 import subprocess
 import esphome.codegen as cg
 import esphome.config_validation as cv
+from esphome.components.esp32 import include_builtin_idf_component
 from esphome.components import climate, switch, sensor, binary_sensor, text_sensor
 from esphome.const import (
     CONF_ID,
@@ -183,29 +184,17 @@ async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
 
-    # add all source files to build
-    cg.add_library("ESP32", None, "freertos")
+    # The protocol diagnostics use ESP-IDF's cJSON implementation.
+    include_builtin_idf_component("json")
 
-    # component directory (used for include path and source file discovery)
+    # FreeRTOS is provided by the ESP-IDF framework; don't register it as an
+    # external library, which makes ESPHome try to clone a repository named
+    # "freertos".
+
+    # Nested source files are exposed at the package root via symlinks, which
+    # lets ESPHome's native ESP-IDF builder copy and compile them. Includes use
+    # root-level aliases, so no ignored -I build flag is needed.
     component_dir = os.path.dirname(os.path.abspath(__file__))
-    component_dir_cmake = component_dir.replace("\\", "/")
-
-    # add component directory to include path so subdirectory files can
-    # cross-reference each other with includes like "pool_task/network.h"
-    cg.add_build_flag(f"-I{component_dir_cmake}")
-
-    # C++ implementation files — use absolute paths because ESPHome only copies
-    # root-level files to the build src/ directory; subdirectory files stay at
-    # the original component location and must be referenced by absolute path.
-    cg.add_platformio_option("build_src_filter", [
-        "+<*>",
-        f"+<{component_dir_cmake}/core/*.cpp>",
-        f"+<{component_dir_cmake}/entities/*.cpp>",
-        f"+<{component_dir_cmake}/ipc/*.cpp>",
-        f"+<{component_dir_cmake}/pool_task/*.cpp>",
-        f"+<{component_dir_cmake}/utils/*.cpp>",
-        f"+<{component_dir_cmake}/matter/*.cpp>",
-    ])
     partitions_path = os.path.join(component_dir, "core", "partitions.csv").replace("\\", "/")
     cg.add_platformio_option("board_build.partitions", partitions_path)
 
@@ -215,10 +204,6 @@ async def to_code(config):
     cg.add_platformio_option("board_build.flash_size",    flash_size)
     cg.add_platformio_option("board_upload.flash_size",   flash_size)
     cg.add_platformio_option("board_upload.maximum_size", flash_size_bytes)
-
-    # add build flags
-    cg.add_build_flag("-fmax-errors=5")
-    cg.add_build_flag("-Wl,-Map=output.map")
 
     # interface firmware version
     version = "unknown"

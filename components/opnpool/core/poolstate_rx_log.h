@@ -29,7 +29,7 @@
 #endif
 #define MAGIC_ENUM_RANGE_MIN 0
 #define MAGIC_ENUM_RANGE_MAX 256
-#include "utils/magic_enum.h"
+#include "utils_magic_enum.h"
 
 namespace esphome {
 namespace opnpool {

@@ -24,11 +24,11 @@
 #include <esp_types.h>
 #include <esphome/core/component.h>
 
-#include "utils/enum_helpers.h"
-#include "opnpool_ids.h"
+#include "utils_enum_helpers.h"
+#include "core_opnpool_ids.h"
 
 #ifdef USE_MATTER
-#include "matter/matter_bridge.h"
+#include "matter_matter_bridge.h"
 #endif
 
 namespace esphome {

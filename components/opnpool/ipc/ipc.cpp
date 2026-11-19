@@ -24,9 +24,9 @@
 #include <freertos/queue.h>
 #include <esphome/core/log.h>
 
-#include "ipc.h"
-#include "pool_task/skb.h"
-#include "pool_task/network_msg.h"
+#include "ipc_ipc.h"
+#include "pool_task_skb.h"
+#include "pool_task_network_msg.h"
 #pragma GCC diagnostic error "-Wall"
 #pragma GCC diagnostic error "-Wextra"
 #pragma GCC diagnostic error "-Wunused-parameter"

@@ -22,7 +22,7 @@
 #include <esp_types.h>
 #include <freertos/queue.h>
 
-#include "core/opnpool.h" // for rs485_pins_t
+#include "core_opnpool.h" // for rs485_pins_t
 
 namespace esphome {
 namespace opnpool {

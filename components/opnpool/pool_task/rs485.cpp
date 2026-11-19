@@ -33,9 +33,9 @@
 #include <esp_rom_sys.h>
 #include <string.h>
 
-#include "rs485.h"
-#include "datalink.h"
-#include "datalink_pkt.h"
+#include "pool_task_rs485.h"
+#include "pool_task_datalink.h"
+#include "pool_task_datalink_pkt.h"
 #pragma GCC diagnostic error "-Wall"
 #pragma GCC diagnostic error "-Wextra"
 #pragma GCC diagnostic error "-Wunused-parameter"

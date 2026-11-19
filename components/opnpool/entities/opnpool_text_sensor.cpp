@@ -20,7 +20,7 @@
 #include <esp_types.h>
 #include <esphome/core/log.h>
 
-#include "opnpool_text_sensor.h"
+#include "entities_opnpool_text_sensor.h"
 #pragma GCC diagnostic error "-Wall"
 #pragma GCC diagnostic error "-Wextra"
 #pragma GCC diagnostic error "-Wunused-parameter"

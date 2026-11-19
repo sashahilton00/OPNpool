@@ -26,15 +26,15 @@
 #include <esphome/core/log.h>
 #include <type_traits>
 
-#include "utils/to_str.h"
-#include "opnpool_climate.h"  // no other #includes that could make a circular dependency
-#include "core/opnpool.h"      // no other #includes that could make a circular dependency
-#include "ipc/ipc.h"          // no other #includes that could make a circular dependency
-#include "pool_task/network_msg.h"  // #includes datalink_pkt.h, that doesn't #include others that could make a circular dependency
-#include "core/poolstate.h"
-#include "opnpool_switch.h"
-#include "utils/enum_helpers.h"
-#include "core/opnpool_ids.h"
+#include "utils_to_str.h"
+#include "entities_opnpool_climate.h"  // no other #includes that could make a circular dependency
+#include "core_opnpool.h"      // no other #includes that could make a circular dependency
+#include "ipc_ipc.h"          // no other #includes that could make a circular dependency
+#include "pool_task_network_msg.h"  // #includes datalink_pkt.h, that doesn't #include others that could make a circular dependency
+#include "core_poolstate.h"
+#include "entities_opnpool_switch.h"
+#include "utils_enum_helpers.h"
+#include "core_opnpool_ids.h"
 
 #pragma GCC diagnostic error "-Wall"
 #pragma GCC diagnostic error "-Wextra"
@@ -130,7 +130,7 @@ OpnPoolClimate::traits()
     traits.add_supported_preset(climate::CLIMATE_PRESET_NONE);
 
         // custom heat sources
-    traits.set_supported_custom_presets({
+    this->set_supported_custom_presets({
         enum_str(network_heat_src_t::Heat),
         enum_str(network_heat_src_t::SolarPreferred),
         enum_str(network_heat_src_t::Solar)

@@ -1,0 +1,1 @@
+entities/opnpool_binary_sensor.h

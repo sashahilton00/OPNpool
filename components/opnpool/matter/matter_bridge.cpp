@@ -14,7 +14,7 @@
 
 #ifdef USE_MATTER
 
-#include "matter_bridge.h"
+#include "matter_matter_bridge.h"
 
 #include <esp_log.h>
 #include <esp_matter.h>
@@ -28,8 +28,8 @@
 #include <app/server/Server.h>
 #include <credentials/FabricTable.h>
 
-#include "../pool_task/network.h"
-#include "../utils/to_str.h"
+#include "pool_task_network.h"
+#include "utils_to_str.h"
 
 namespace esphome {
 namespace opnpool {

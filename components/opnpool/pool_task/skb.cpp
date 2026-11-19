@@ -16,7 +16,7 @@
 #include <esp_types.h>
 #include <esphome/core/log.h>
 
-#include "skb.h"
+#include "pool_task_skb.h"
 #pragma GCC diagnostic error "-Wall"
 #pragma GCC diagnostic error "-Wextra"
 #pragma GCC diagnostic error "-Wunused-parameter"

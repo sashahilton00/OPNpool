@@ -20,13 +20,13 @@
 #include <esp_log.h>
 #include <esphome/core/log.h>
 
-#include "utils/to_str.h"
+#include "utils_to_str.h"
 
-#include "utils/enum_helpers.h"
-#include "datalink.h"
-#include "datalink_pkt.h"
-#include "network.h"
-#include "network_msg.h"
+#include "utils_enum_helpers.h"
+#include "pool_task_datalink.h"
+#include "pool_task_datalink_pkt.h"
+#include "pool_task_network.h"
+#include "pool_task_network_msg.h"
 #pragma GCC diagnostic error "-Wall"
 #pragma GCC diagnostic error "-Wextra"
 #pragma GCC diagnostic error "-Wunused-parameter"

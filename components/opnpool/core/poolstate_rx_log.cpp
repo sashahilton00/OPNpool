@@ -28,11 +28,11 @@
 #include <string.h>
 #include <cstddef>
 
-#include "utils/to_str.h"
-#include "utils/enum_helpers.h"
-#include "pool_task/network.h"
-#include "poolstate.h"
-#include "poolstate_rx_log.h"
+#include "utils_to_str.h"
+#include "utils_enum_helpers.h"
+#include "pool_task_network.h"
+#include "core_poolstate.h"
+#include "core_poolstate_rx_log.h"
 #pragma GCC diagnostic error "-Wall"
 #pragma GCC diagnostic error "-Wextra"
 #pragma GCC diagnostic error "-Wunused-parameter"

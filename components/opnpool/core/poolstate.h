@@ -41,9 +41,9 @@
 #endif
 #define MAGIC_ENUM_RANGE_MIN 0
 #define MAGIC_ENUM_RANGE_MAX 256
-#include "utils/magic_enum.h"
-#include "pool_task/network.h"
-#include "pool_task/network_msg.h"
+#include "utils_magic_enum.h"
+#include "pool_task_network.h"
+#include "pool_task_network_msg.h"
 
 namespace esphome {
 namespace opnpool {
